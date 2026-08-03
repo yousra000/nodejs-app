@@ -1,0 +1,13 @@
+{
+  "name": "gitops-demo",
+  "version": "1.0.0",
+  "description": "GitOps Demo Application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"No tests yet\""
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
