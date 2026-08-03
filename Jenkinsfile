@@ -93,31 +93,41 @@ pipeline {
 
             steps {
 
-            sh '''
+                withCredentials([
+                    string(credentialsId: 'github_token', variable: 'GITHUB_TOKEN')
+                ]) {
 
-            git clone https://github.com/yousra000/gitops-manifests.git
+                    sh '''
 
-            cd gitops-manifests
+                    rm -rf gitops-manifests
 
-            sed -i "s#gitops-demo:[0-9]*#gitops-demo:${IMAGE_TAG}#" deployment.yaml
+                    git clone https://${GITHUB_TOKEN}@github.com/yousra000/gitops-manifests.git
 
-
-            git config user.email "yousraramadangad1@gmail.com"
-
-            git config user.name "yousra000"
+                    cd gitops-manifests
 
 
-            git add .
+                    sed -i "s#gitops-demo:[0-9]*#gitops-demo:${IMAGE_TAG}#" app/deployment.yaml
 
-            git commit -m "Update image tag to ${IMAGE_TAG}"
 
-            git push
+                    git config user.email "yousraramadangad1@gmail.com"
+                    git config user.name "yousra000"
 
-            '''
+
+                    git add app/deployment.yaml
+
+
+                    git commit -m "Update image tag to ${IMAGE_TAG}" || echo "No changes to commit"
+
+
+                    git push origin main
+
+                    '''
+
+                }
 
             }
 
-            }
+        }
 
     }
 
