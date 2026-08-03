@@ -47,12 +47,12 @@ pipeline {
             steps {
                 withCredentials([
                     string(credentialsId: 'aws_access_key', variable: 'AWS_ACCESS_KEY'),
-                    string(credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'AWS_SECRET_KEY')
+                    string(credentialsId: 'aws_secret_access_key', variable: 'AWS_SECRET_KEY')
                 ]) {
 
                     sh '''
                     aws configure set aws_access_key $AWS_ACCESS_KEY
-                    aws configure set AWS_SECRET_ACCESS_KEY $AWS_SECRET_KEY
+                    aws configure set aws_secret_access_key $AWS_SECRET_KEY
                     aws configure set default.region ${AWS_REGION}
                     '''
                 }
