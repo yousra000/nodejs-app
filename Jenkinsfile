@@ -113,7 +113,7 @@ pipeline {
                     git config user.name "yousra000"
 
 
-                    git add app/deployment.yaml
+                    git add deployment.yaml
 
 
                     git commit -m "Update image tag to ${IMAGE_TAG}" || echo "No changes to commit"
