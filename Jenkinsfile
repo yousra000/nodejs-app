@@ -3,7 +3,10 @@ pipeline {
 
     agent any
 
-
+    tools {
+        nodejs 'NodeJS22'
+    }
+    
     environment {
 
         IMAGE_NAME = "gitops-demo"
