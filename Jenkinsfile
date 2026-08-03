@@ -89,6 +89,35 @@ pipeline {
                 }
             }
         }
+        stage('Update GitOps Repo') {
+
+            steps {
+
+            sh '''
+
+            git clone https://github.com/yousra000/gitops-manifests.git
+
+            cd gitops-manifests
+
+            sed -i "s#gitops-demo:[0-9]*#gitops-demo:${IMAGE_TAG}#" app/deployment.yaml
+
+
+            git config user.email "yousraramadangad1@gmail.com"
+
+            git config user.name "yousra000"
+
+
+            git add .
+
+            git commit -m "Update image tag to ${IMAGE_TAG}"
+
+            git push
+
+            '''
+
+            }
+
+            }
 
     }
 
