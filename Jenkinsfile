@@ -94,7 +94,7 @@ pipeline {
             steps {
 
                 withCredentials([
-                    string(credentialsId: 'github_token', variable: 'GITHUB_TOKEN')
+                    string(credentialsId: 'Github_cred', variable: 'GITHUB_TOKEN')
                 ]) {
 
                     sh '''
