@@ -61,13 +61,10 @@ pipeline {
 
         stage('Login to Amazon ECR') {
     steps {
-        withCredentials([
-            usernamePassword(
-                credentialsId: 'aws-ecr-creds',
-                usernameVariable: 'AWS_ACCESS_KEY_ID',
-                passwordVariable: 'AWS_SECRET_ACCESS_KEY'
-            )
-        ]) {
+                withCredentials([
+                    string(credentialsId: 'aws_access_key', variable: 'AWS_ACCESS_KEY_ID'),
+                    string(credentialsId: 'aws_secret_access_key', variable: 'AWS_SECRET_ACCESS_KEY')
+                ]) {
             sh '''
             export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
             export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
