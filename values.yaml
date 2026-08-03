@@ -38,5 +38,10 @@ persistence:
 
 
 agent:
-
   enabled: true
+
+  image:
+    repository: yousra000/jenkins-agent
+    tag: latest
+
+  workingDir: "/home/jenkins/agent"
