@@ -41,7 +41,7 @@ agent:
   enabled: true
 
   image:
-    repository: yousra000/jenkins-agent
+    repository: yousra314/jenkins-agent
     tag: latest
 
   workingDir: "/home/jenkins/agent"
