@@ -7,7 +7,7 @@ pipeline {
 
     environment {
         AWS_REGION = 'us-east-1'
-        AWS_ACCOUNT_ID = 'YOUR_ACCOUNT_ID'
+        AWS_ACCOUNT_ID = '529088275092'
         ECR_REPOSITORY = 'gitops-demo'
         IMAGE_NAME = 'gitops-demo'
         IMAGE_TAG = "${BUILD_NUMBER}"
