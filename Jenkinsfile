@@ -106,7 +106,7 @@ pipeline {
                     cd gitops-manifests
 
 
-                    sed -i "s#gitops-demo:[0-9]*#gitops-demo:${IMAGE_TAG}#" app/deployment.yaml
+                    sed -i "s#gitops-demo:[0-9]*#gitops-demo:${IMAGE_TAG}#" deployment.yaml
 
 
                     git config user.email "yousraramadangad1@gmail.com"
