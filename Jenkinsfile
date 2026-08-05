@@ -42,7 +42,20 @@ pipeline {
                 '''
             }
         }
+        stage('Scan Docker Image') {
 
+            steps {
+
+                sh '''
+                trivy image \
+                --severity HIGH,CRITICAL \
+                --exit-code 1 \
+                ${IMAGE_NAME}:${IMAGE_TAG}
+                '''
+
+            }
+
+        }
         stage('Login to Amazon ECR') {
             steps {
                 withCredentials([
