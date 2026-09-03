@@ -8,7 +8,7 @@
     "test": "echo \"No tests yet\""
   },
   "dependencies": {
-    "express": "^4.19.2",
+    "express": "^5.2.1",
     "prom-client": "^15.1.3"
   }
 }
